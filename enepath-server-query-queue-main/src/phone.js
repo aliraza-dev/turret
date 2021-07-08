@@ -54,14 +54,18 @@ exports.incomingCall = (req, res) => {
         return false
         })
 
-        let state;
+        let data = {
+            state: false,
+            number: 0
+        };
         // Filter out the state;
         if ( incoming_call ) {
             const splitState = incoming_call.split('%'); 
-            state = splitState[3]
+            data.number = splitState[3]
+            data.state  = true
         }
 
-        res.status(200).send(state)
+        res.status(200).send(data)
     } catch(err) {
         res.status(500).send("Something went wrong, please try again")
     }

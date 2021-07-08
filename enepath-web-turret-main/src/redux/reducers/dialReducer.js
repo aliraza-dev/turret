@@ -6,7 +6,9 @@ const initialState = {
     on_call: false,
     loading: false,
     on_hold: false,
-    incoming_call: false, 
+    incoming_call: false,
+    phone_num: 0,
+    private_call: false, 
     errors: []
 }
 
@@ -19,6 +21,7 @@ export default function(state = initialState, action) {
                  loading: false,
                  incoming_call: false,
                  on_hold: false,
+                 phone_num: 0
              }
 
         case HOLD_CALL:
@@ -36,7 +39,8 @@ export default function(state = initialState, action) {
         case INCOMMINGCALL: 
             return {
             ...state,
-            incoming_call: true
+            incoming_call: action.payload.state,
+            phone_num: action.payload.number
             }
         default:
             return {

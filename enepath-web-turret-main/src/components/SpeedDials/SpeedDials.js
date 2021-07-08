@@ -36,10 +36,10 @@ const SpeedDials = (props) => {
             {             
                 Array.from(Array(5).keys()).map(e => (
                     <Row key={e} justify="center">
-                        <button key={e * 2 + 1} className={["speed-dial-button", (callData.incoming_call == (e * 2 + 1) ? "blink" : "")].join(" ")} onClick={() => writeEvent(DialButtonList[e*2+1][0], e*2+1, DialButtonList[e*2+1][1])}>
+                        <button key={e * 2 + 1} className={["speed-dial-button", (callData.phone_num == (e * 2 + 1) ? "blink" : "")].join(" ")} onClick={() => writeEvent(DialButtonList[e*2+1][0], e*2+1, DialButtonList[e*2+1][1])}>
                             {DialButtonList[e*2+1][0]}<br />{DialButtonList[e*2+1][1]}
                         </button>
-                        <button key={e * 2 + 2} className={["speed-dial-button", (callData.incoming_call == (e * 2 + 2) ? "blink" : "")].join(" ")} onClick={() => writeEvent(DialButtonList[e*2+2][0], e*2+2, DialButtonList[e*2+2][1])}>
+                        <button key={e * 2 + 2} className={["speed-dial-button", (callData.phone_num == (e * 2 + 2) ? "blink" : "")].join(" ")} onClick={() => writeEvent(DialButtonList[e*2+2][0], e*2+2, DialButtonList[e*2+2][1])}>
                             {DialButtonList[e*2+2][0]}<br />{DialButtonList[e*2+2][1]}
                         </button>
                     </Row>

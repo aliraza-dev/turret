@@ -69,11 +69,6 @@ export const setStartUpState = () => (dispatch) => {
 export const connectToSocket = () => (dispatch) => {
   
   const socket = io("http://127.0.0.1:4001");
-
-  // socket.on('outgoing data', (data) => {
-      
-  // })
-
   socket.on('file-added', data => {
       // processing events
       if (data  && data.eventName) {

@@ -64,6 +64,7 @@ export const endCall = () => dispatch => {
 export const incomingCall = () => dispatch => {
     axios.get('/incoming-call')
     .then(res => {
+        console.log(res.data)
         dispatch({
             type: INCOMMINGCALL,
             payload: res.data
