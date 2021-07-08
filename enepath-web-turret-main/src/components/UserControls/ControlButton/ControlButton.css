@@ -1,0 +1,26 @@
+:root {
+    --light: #999999;
+    --dark: #555555;
+    --text: black;   
+}
+
+.control-button {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 200px;
+    height: 100px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 4px var(--dark) inset;
+    margin: 15px;
+}
+
+button:hover {
+    background-color:var(--dark);
+}

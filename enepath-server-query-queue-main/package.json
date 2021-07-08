@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chokidar": "^3.5.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "inotify": "^1.4.6",
+    "inotifywait": "^1.8.3",
+    "process": "^0.11.10",
+    "socket.io": "^4.1.2",
+    "url": "^0.11.0"
+  }
+}

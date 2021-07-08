@@ -1,0 +1,41 @@
+:root {
+    --light: #999999;
+    --dark: #555555;
+    --text: black;
+}
+
+.speed-dial-button {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    width: 300px;
+    height: 100px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 4px var(--dark) inset;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: var(--dark);
+}
+
+@keyframes blink {
+  50% {
+    background-color: #c0392b;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    background-color: #c0392b;
+  }
+}
+.blink {
+  animation: blink 1s step-start 0s infinite;
+  -webkit-animation: blink 1s step-start 0s infinite;
+}

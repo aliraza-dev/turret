@@ -1,0 +1,13 @@
+.box-display {
+    text-align: center;
+    border: 1px solid white;
+    font-size: 3em;
+    background: white;
+    margin: 0 auto;
+    width: 30vw;
+    border-radius: 10px;
+}
+
+.box-display:hover {
+    background: #f0efef;
+}
