@@ -31,7 +31,7 @@ const CallControls = (props) => {
     <>
             <Row justify="center">
                 <CallControl handleClick={() => handleEndClick()} text="End" color="call-button-red" />
-                { callState.on_call && <CallControl text="Hold" color="call-button-blue" handleClick={() => handleHold()} /> }
+                { callState.on_call && <CallControl text="Hold" color={["call-button-blue", ( callState.on_hold ? "on-hold" : "")].join(" ")} handleClick={() => handleHold()} /> }
                 { !callState.on_call && <CallControl text="Call" handleClick={() => startCall()} color="call-button-green"/>}
                 
             </Row>

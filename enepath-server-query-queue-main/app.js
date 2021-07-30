@@ -10,13 +10,14 @@ const chokidar = require('chokidar');
 const http = require("http");
 const socketIo = require('socket.io')
 const path = require('path')
-var fileLocation = path.join(__dirname, './tmp/atp-gui/web-data/station/');
+// var fileLocation = path.join(__dirname, '/var/tmp/atp-gui/web-data/station/');
+var fileLocation = '/var/tmp/atp-gui/web-data/station/';
 
 // Handlers;
 const {loginState, startUpState, writeStartUpState, login, logout} = require('./src/loginstate');
 const {writeButton} = require('./src/writeButton')
 const {homePage} = require('./src/stationData')
-const { endCall, holdCall, startCall, incomingCall } = require('./src/phone')
+const { endCall, holdCall, startCall, incomingCall, privateCallHandler, webTextHandler } = require('./src/phone')
 jsonParser = bodyParser.json()
 
 app.use(CORS())
@@ -43,6 +44,8 @@ app.get('/end-call', endCall);
 app.get('/hold-call', holdCall);
 app.post('/start-call', jsonParser, startCall)
 app.get('/incoming-call', incomingCall)
+app.get('/private-call', privateCallHandler)
+app.get('/web-text', webTextHandler);
 
 // Web Sockets;
 //Setting up express and adding socketIo middleware
@@ -71,6 +74,9 @@ io.on("connection", socket => {
     });
     watcher.on('add', (event, path) => {
         socket.emit('file-added', {filename: path, eventName: event})
+    })
+    watcher.on('unlink', (event, path) => {
+        socket.emit('file-removed', {filename: path, eventName: event})
     })
 
     //A special namespace "disconnect" for when a client disconnects

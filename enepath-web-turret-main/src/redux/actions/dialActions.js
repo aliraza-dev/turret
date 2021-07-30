@@ -1,7 +1,8 @@
 import {
     END_CALL,
     HOLD_CALL,
-    INCOMMINGCALL,
+    INCOMINGCALL,
+    PRIVATE,
     SET_ERRORS,
     START_CALL,
 } from "../types";
@@ -64,9 +65,8 @@ export const endCall = () => dispatch => {
 export const incomingCall = () => dispatch => {
     axios.get('/incoming-call')
     .then(res => {
-        console.log(res.data)
         dispatch({
-            type: INCOMMINGCALL,
+            type: INCOMINGCALL,
             payload: res.data
         })
     })
@@ -77,3 +77,38 @@ export const incomingCall = () => dispatch => {
         })
     });
 }
+
+export const privateCall = () => dispatch => {
+    axios.get('/private-call')
+    .then(res => {
+        dispatch({
+            type: PRIVATE,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch({
+            type: SET_ERRORS
+        })
+    });
+}
+
+export const dialPad = () => dispatch => {
+    axios.get('/http://localhost:4000/web-text')
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch({
+            type: SET_ERRORS
+        })
+    });
+}
+
+
+
+
+
+

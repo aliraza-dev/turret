@@ -1,5 +1,5 @@
 var fs = require('fs');
-var filesStation = fs.readdirSync('./tmp/atp-gui/web-data/station/');
+var filesStation = fs.readdirSync('/var/tmp/atp-gui/web-data/station/');
 const {getTimeStamp} = require('../utils/timestamp')
 const {writeWeb} = require('../utils/fileHelper')
 
@@ -37,7 +37,7 @@ exports.writeStartUpState = (req, res) => {
     
     let fileName = `${timestamp}%REQUEST%STARTUP%`;
 
-    fs.writeFile("./tmp/atp-gui/web-data/web/" + fileName, "", function(err) {
+    fs.writeFile("/var/tmp/atp-gui/web-data/web/" + fileName, "", function(err) {
         if(err) {
             return console.log(err);
         }
@@ -45,7 +45,7 @@ exports.writeStartUpState = (req, res) => {
     
     // return current state;
     const data = getLoginState();
-    res.status(200).send({data, message: "Status Fetched Successfully"});
+    res.status(200).send({data, message: "Startup state added"});
 }
 
 exports.login = (req, res) => {

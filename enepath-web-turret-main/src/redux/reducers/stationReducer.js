@@ -9,7 +9,7 @@ const initialState = {
   socket_connection: false,
 };
 
-export default function (state = initialState, action) {
+export default function station (state = initialState, action) {
   switch (action.type) {
     case CURRENT_STATE:
       return {

@@ -57,13 +57,14 @@ export const logoutUser = (history) => (dispatch) => {
     .get("/logout")
     .then((res) => {
       console.log(res.data);
+      console.log("Deletion Request Sent")
       // setAuthorizationHeader(res.data);
-      dispatch({
-        type: SET_UNAUTHENTICATED,
-        payload: res.data
-      });
+      // dispatch({
+      //   type: SET_UNAUTHENTICATED,
+      //   payload: res.data
+      // });
 
-      history.push('/login');
+      // history.push('/');
 
     })
     .catch((err) => {

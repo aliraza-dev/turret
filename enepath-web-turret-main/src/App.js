@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 
 // Redux;
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './redux/store';
 import { connectToSocket } from './redux/actions/stationActions';
 
@@ -24,16 +24,16 @@ class App extends Component {
 	}
 
 	render() {
-		    return (
-     <Provider store={this.store}>
-		<div className="container">
-			<Router>
-				<Route path="/login" exact component={Login}/>
-				<Route path="/" exact component={Home}/>
-			</Router>
-	 	</div>
-	 </Provider>
-    );
+		return (
+			<Provider store={this.store}>
+				<div className="container">
+					<Router>
+						<Route path="/main" exact component={Home}/>
+						<Route path="/" exact component={Login}/>
+					</Router>
+				</div>
+			</Provider>
+		);
 	}
 }
 

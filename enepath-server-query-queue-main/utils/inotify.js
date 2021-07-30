@@ -48,7 +48,7 @@ var callback = function(event) {
 }
 var webStation = {
     // Change this for a valid directory in your machine.
-    path:      '../tmp/atp-gui/web-data/station/',
+    path:      '../var/tmp/atp-gui/web-data/station/',
     watch_for: Inotify.IN_OPEN | Inotify.IN_CLOSE,
     callback:  callback
 };
@@ -57,7 +57,7 @@ var webStationWatcher = inotify.addWatch(webStation);
 
 var webGui = {
     // Change this for a valid directory in your machine
-    path:      '../tmp/atp-gui/web-data/web/',
+    path:      '../var/tmp/atp-gui/web-data/web/',
     watch_for: Inotify.IN_ALL_EVENTS,
     callback:  callback
 };

@@ -1,6 +1,6 @@
 var INotifyWait = require('inotifywait');
  
-var watch1 = new INotifyWait('./tmp/atp-gui/web-data/station/', { recursive: false });
+var watch1 = new INotifyWait('./var/tmp/atp-gui/web-data/station/', { recursive: false });
 watch1.on('ready', function (filename) {
   console.log('watcher is watching');
 });
@@ -15,7 +15,7 @@ watch2.on('change', function (filename) {
   watch2.close(); // stop watching
 });
  
-var watch3 = new Inotifywait("./tmp/atp-gui/web-data/station/", {
+var watch3 = new Inotifywait("./var/tmp/atp-gui/web-data/station/", {
             recursive: true, // recurse sub folders
             events: ["create", "move", "delete"], // events to listen to
             spawnArgs: {stdio: "inherit"}, // spawn args controlling bin spawning

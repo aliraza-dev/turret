@@ -1,6 +1,6 @@
 exports.stationData = (req, res) => {
     var fs = require('fs');
-    var files = fs.readdirSync('./tmp/atp-gui/web-data/station/');
+    var files = fs.readdirSync('/var/tmp/atp-gui/web-data/station/');
     res.send(files);
 }
 
@@ -16,7 +16,7 @@ exports.homePage = async (req, res) => {
     let seconds = date_ob.getSeconds();
     let timestamp = (""+ year + month + date + hours + minutes + seconds);
 
-    fs.writeFile("./tmp/" + timestamp + "_" + message, "", function(err) {
+    fs.writeFile("/tmp/" + timestamp + "_" + message, "", function(err) {
         if(err) {
             return console.log(err);
         }

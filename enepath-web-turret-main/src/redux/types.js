@@ -19,7 +19,12 @@ export const CURRENT_STATE = "CURRENT_STATE";
 export const END_CALL = "END_CALL";
 export const START_CALL = "START_CALL";
 export const HOLD_CALL = "HOLD_CALL";
-export const INCOMMINGCALL = "INCOMMINGCALL";
+export const INCOMINGCALL = "INCOMINGCALL";
+export const INCOMING = "INCOMING";
+export const BU = "BU"
+export const PRIVATE = "PRIVATE"
+export const REQUEST = "REQUEST"
+export const DIALPAD = "DIALPAD"
 
 // Errors State;
 export const SET_ERRORS = "SET_ERRORS";
@@ -32,3 +37,8 @@ export const SET_CHAT_USER = "SET_CHAT_USER";
 
 // Station types;
 export const SOCKET_CONNECTION = "SOCKET_CONNECTION";
+
+// Header actions;
+export const UIN = "UIN"
+export const TEXT = "TEXT"
+export const COLOR = "COLOR"

@@ -21,9 +21,16 @@ class LoginPage extends Component {
       loadingUser: false,
       errors: {}
     }
+
+    document.body.classList.remove('home-page');
+    document.body.classList.add('login-page');
+
   }
 
   changeHandler = (event) => {
+
+    if (event.target.value.length > 4 ) return false;
+
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value,
@@ -51,7 +58,7 @@ class LoginPage extends Component {
     if (nextProps.user.connecting) this.setState({ loadingUser: true })
     if (nextProps.user.authenticated) { 
       this.setState({loadingUser: false}) 
-      this.props.history.push('/')
+      this.props.history.push('/main')
     }
     if (nextProps.user.errors) {
       this.setState({ errors: nextProps.user.errors, loadingUser: false })
@@ -72,28 +79,28 @@ class LoginPage extends Component {
                   this.state.errors && this.state.errors.type
                 }</h4>
                 {!this.state.loadingUser ? <Form onSubmit={this.handleSubmit} className="form-signin">
-                <Form.Group size="lg" controlId="email">
-                  <Form.Label>Email</Form.Label>
+                <Form.Group className="mb-4" size="lg" controlId="email">
                   <Form.Control
                     autoFocus
-                    type="email"
+                    type="text"
                     name="email"
                     value={this.state.email}
                     onChange={this.changeHandler}
                     autoComplete="off"
+                    placeholder="Username"
                   />
                 </Form.Group>
                 <Form.Group size="lg" controlId="password">
-                  <Form.Label>Password</Form.Label>
                   <Form.Control
                     name="password"
                     type="password"
                     value={this.state.password}
                     onChange={this.changeHandler}
+                    placeholder="Password"
                   />
                 </Form.Group>
-                <Form.Group className="mt-4">
-                  <Button block size="sm" type="submit">
+                <Form.Group className="mt-4 d-grid gap-2">
+                  <Button block size="lg" variant="primary" type="submit">
                     Login
                   </Button>
                 </Form.Group>

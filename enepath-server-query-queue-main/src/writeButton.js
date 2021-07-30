@@ -12,7 +12,7 @@ exports.writeButton = (req, res) => {
     
     let fileName = `${timestamp}%PRESS%BU%${req.body.position}%`;
 
-    fs.writeFile("./tmp/atp-gui/web-data/web/" + fileName, "", function(err) {
+    fs.writeFile("/var/tmp/atp-gui/web-data/web/" + fileName, "", function(err) {
         if(err) {
             return console.log(err);
         }
